@@ -51,6 +51,31 @@ function generateSlug(name: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
+// Convert D/M/YYYY or DD/MM/YYYY into YYYY-MM-DD for stable lexicographical sorting
+function normalizeDate(dateStr: string): string {
+  const cleanStr = dateStr.trim();
+  const parts = cleanStr.split("/");
+  
+  if (parts.length === 3) {
+    const d = parseInt(parts[0], 10);
+    const m = parseInt(parts[1], 10);
+    const y = parseInt(parts[2], 10);
+    
+    if (!isNaN(d) && !isNaN(m) && !isNaN(y)) {
+      const pad = (n: number) => n.toString().padStart(2, "0");
+      // D/M/YYYY (standard in India/Europe)
+      // If m > 12, then parts[0] is month and parts[1] is day (M/D/YYYY).
+      if (m > 12) {
+        return `${y}-${pad(d)}-${pad(m)}`;
+      } else {
+        return `${y}-${pad(m)}-${pad(d)}`;
+      }
+    }
+  }
+  
+  return cleanStr;
+}
+
 function stripHeader(content: string): string {
   const trimmed = content.trim();
   
@@ -115,7 +140,7 @@ function parseFile(filepath: string, platformFolder: string): Problem | null {
   const lines = content.split(/\r?\n/);
   
   for (const line of lines) {
-    const match = line.match(/^\s*(?:\*|\/\/|#)?\s*(Problem|Platform|Difficulty|Topic|Topics|Time Complexity|Space Complexity|Submitted by|Date|Day)\s*:\s*(.*)$/i);
+    const match = line.match(/^\s*(?:\*|\/\/|#)?\s*(Problem|Platform|Difficulty|Topic|Topics|Time Complexity|Space Complexity|Submitted by|Submitted on|Date|Day)\s*:\s*(.*)$/i);
     if (match) {
       const key = match[1].toLowerCase().replace(" ", "");
       let val = match[2].replace(/\*\/$/, "").trim();
@@ -140,8 +165,8 @@ function parseFile(filepath: string, platformFolder: string): Problem | null {
         spaceComplexity = val;
       } else if (key === "submittedby") {
         submittedBy = val;
-      } else if (key === "date") {
-        date = val;
+      } else if (key === "submittedon" || key === "date") {
+        date = normalizeDate(val);
       } else if (key === "day") {
         const parsedDay = parseInt(val, 10);
         if (!isNaN(parsedDay)) {
@@ -232,6 +257,28 @@ function main() {
     if (stat.isDirectory() && !IGNORED_DIRECTORIES.has(item) && item !== tempDirName) {
       console.log(`Scanning platform folder: ${item}`);
       scanDirectory(fullPath, item, results);
+    }
+  }
+
+  // Calculate earliest date to compute relative coding journey Day N dynamically
+  let earliestDateStr = "";
+  for (const p of results) {
+    if (p.date && p.date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      if (!earliestDateStr || p.date.localeCompare(earliestDateStr) < 0) {
+        earliestDateStr = p.date;
+      }
+    }
+  }
+
+  const startDate = earliestDateStr ? new Date(earliestDateStr + "T00:00:00") : new Date();
+
+  // Dynamic journey day assignment
+  for (const p of results) {
+    if (p.day === null && p.date && p.date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      const currentDate = new Date(p.date + "T00:00:00");
+      const diffTime = currentDate.getTime() - startDate.getTime();
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      p.day = diffDays + 1;
     }
   }
 
