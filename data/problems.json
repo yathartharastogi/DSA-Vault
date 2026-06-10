@@ -1,5 +1,25 @@
 [
   {
+    "id": "1A",
+    "name": "Theatre Square",
+    "slug": "theatre-square",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Math",
+      "Implementation"
+    ],
+    "timeComplexity": "O(1)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-11",
+    "day": 4,
+    "filename": "TheatreSquare.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main(){\n\n    long long m,n,a;\n    cin >> m >> n >> a;\n\n    long long r = (m + a - 1)/a;\n    long long c = (n + a - 1)/a;\n    cout<< r * c;\n    \n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/TheatreSquare.cpp"
+  },
+  {
     "id": "4A",
     "name": "Watermelon",
     "slug": "watermelon",
