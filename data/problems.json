@@ -16,7 +16,7 @@
     "day": 4,
     "filename": "Watermelon.cpp",
     "language": "cpp",
-    "solution": "#include <iostream>\nusing namespace std;\n\nbool isEven(int w){\n    return w % 2 == 0;\n}\nint main(){\n    int w;\n    cin >> w;\n    \n    if (isEven(w) && w > 2){\n        cout << \"YES\" << endl;\n    } else {\n        cout << \"NO\" << endl;\n    }\n    return 0;\n}",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nbool isEven(int w){\n    return w % 2 == 0;\n}\nint main(){\n    int w;\n    cin >> w;\n    \n    if (isEven(w) && w > 2){\n        cout << \"YES\" << endl;\n    } else {\n        cout << \"NO\" << endl;\n    }\n    return 0;\n}",
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Watermelon.cpp"
   },
   {
