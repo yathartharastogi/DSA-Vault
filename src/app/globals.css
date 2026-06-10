@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted-foreground);
+  --color-border: var(--border);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --background: #FAFAF8;
+  --card: #FFFFFF;
+  --foreground: #18181B;
+  --muted-foreground: #71717A;
+  --border: #E4E4E7;
+}
+
+.dark {
+  --background: #09090B;
+  --card: #18181B;
+  --foreground: #FAFAFA;
+  --muted-foreground: #A1A1AA;
+  --border: #27272A;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom transitions */
+.theme-transition {
+  transition-property: background-color, border-color, text-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom Scrollbar for staff-level minimalism */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+  opacity: 0.5;
+}
+
+/* Modern minimalist selection */
+::selection {
+  background-color: var(--border);
+  color: var(--foreground);
+}
+
+/* Shiki code blocks styling */
+.shiki {
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.shiki span {
+  font-family: inherit;
+  font-style: normal !important;
+}
+
+/* Shiki light/dark dual-theme colors selection */
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
