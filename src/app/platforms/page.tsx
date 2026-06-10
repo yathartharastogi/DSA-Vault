@@ -37,16 +37,24 @@ export default async function PlatformsPage() {
   const platformStats: Record<
     string,
     { total: number; easy: number; medium: number; hard: number }
-  > = {};
+  > = {
+    "LeetCode": { total: 0, easy: 0, medium: 0, hard: 0 },
+    "Codeforces": { total: 0, easy: 0, medium: 0, hard: 0 },
+    "Codechef": { total: 0, easy: 0, medium: 0, hard: 0 },
+  };
 
   problems.forEach((p) => {
-    if (!platformStats[p.platform]) {
-      platformStats[p.platform] = { total: 0, easy: 0, medium: 0, hard: 0 };
+    const standardName = Object.keys(platformStats).find(
+      key => key.toLowerCase() === p.platform.toLowerCase()
+    ) || p.platform;
+
+    if (!platformStats[standardName]) {
+      platformStats[standardName] = { total: 0, easy: 0, medium: 0, hard: 0 };
     }
-    platformStats[p.platform].total++;
-    if (p.difficulty === "Easy") platformStats[p.platform].easy++;
-    else if (p.difficulty === "Medium") platformStats[p.platform].medium++;
-    else if (p.difficulty === "Hard") platformStats[p.platform].hard++;
+    platformStats[standardName].total++;
+    if (p.difficulty === "Easy") platformStats[standardName].easy++;
+    else if (p.difficulty === "Medium") platformStats[standardName].medium++;
+    else if (p.difficulty === "Hard") platformStats[standardName].hard++;
   });
 
   const platforms = Object.entries(platformStats).map(([name, stats]) => ({
@@ -68,9 +76,9 @@ export default async function PlatformsPage() {
       {platforms.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {platforms.map((platform) => {
-            const easyPct = (platform.easy / platform.total) * 100;
-            const mediumPct = (platform.medium / platform.total) * 100;
-            const hardPct = (platform.hard / platform.total) * 100;
+            const easyPct = platform.total > 0 ? (platform.easy / platform.total) * 100 : 0;
+            const mediumPct = platform.total > 0 ? (platform.medium / platform.total) * 100 : 0;
+            const hardPct = platform.total > 0 ? (platform.hard / platform.total) * 100 : 0;
 
             return (
               <div

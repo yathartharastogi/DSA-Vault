@@ -2,29 +2,25 @@
  * Problem : Two Sum
  * Platform : LeetCode #1
  * Difficulty : Easy
- * Topic : Array, Hash Map
+ * Topic : Arrays
  *
- * Time Complexity : O(n)
- * Space Complexity : O(n)
- * Submitted by : Yathartha Rastogi
- * Date : 2026-06-08
- * Day : 1
+ * Time Complexity : O(n²)
+ * Space Complexity : O(1)
+ * Submitted by: Yathartha Rastogi
  */
 
-#include <vector>
-#include <unordered_map>
+
 
 class Solution {
 public:
-    std::vector<int> twoSum(std::vector<int>& nums, int target) {
-        std::unordered_map<int, int> num_to_index;
-        for (int i = 0; i < nums.size(); ++i) {
-            int complement = target - nums[i];
-            if (num_to_index.find(complement) != num_to_index.end()) {
-                return {num_to_index[complement], i};
+    vector<int> twoSum(vector<int>& nums, int target) {
+        for (int i=0; i<nums.size(); i++){
+            for(int j=i+1; j<nums.size(); j++){
+                if(nums[i]+nums[j]==target){
+                    return{i,j};
+                }
             }
-            num_to_index[nums[i]] = i;
         }
-        return {};
+        return{};
     }
 };

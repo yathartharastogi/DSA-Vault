@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
+import { execSync } from "child_process";
 
 interface Problem {
   id: string;
@@ -114,16 +115,14 @@ function parseFile(filepath: string, platformFolder: string): Problem | null {
   const lines = content.split(/\r?\n/);
   
   for (const line of lines) {
-    // Check if line looks like: * Key : Value or # Key : Value or // Key : Value
     const match = line.match(/^\s*(?:\*|\/\/|#)?\s*(Problem|Platform|Difficulty|Topic|Topics|Time Complexity|Space Complexity|Submitted by|Date|Day)\s*:\s*(.*)$/i);
     if (match) {
       const key = match[1].toLowerCase().replace(" ", "");
-      let val = match[2].replace(/\*\/$/, "").trim(); // Remove ending block comment token if present
+      let val = match[2].replace(/\*\/$/, "").trim();
 
       if (key === "problem") {
         name = val;
       } else if (key === "platform") {
-        // e.g. "LeetCode #100" or just "LeetCode"
         if (val.includes("#")) {
           const parts = val.split("#");
           platform = parts[0].trim();
@@ -132,7 +131,6 @@ function parseFile(filepath: string, platformFolder: string): Problem | null {
           platform = val;
         }
       } else if (key === "difficulty") {
-        // Standardize difficulty titlecase
         difficulty = val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
       } else if (key === "topic" || key === "topics") {
         topics = val.split(",").map((t) => t.trim()).filter((t) => t.length > 0);
@@ -170,7 +168,7 @@ function parseFile(filepath: string, platformFolder: string): Problem | null {
     filename,
     language,
     solution: cleanCode,
-    filepath: filepath.replace(/\\/g, "/"), // normalize path separators
+    filepath: filepath.replace(/\\/g, "/"),
   };
 }
 
@@ -198,21 +196,46 @@ function scanDirectory(dir: string, platformFolder: string, results: Problem[]) 
 function main() {
   console.log("Parsing solution files for DSA Vault...");
   const workspaceRoot = process.cwd();
-  const results: Problem[] = [];
+  
+  let solutionsDir = workspaceRoot;
+  let tempDirCreated = false;
+  const tempDirName = "temp-solutions-clone";
 
-  const items = fs.readdirSync(workspaceRoot);
+  // Check if remote flag is present or building on Vercel
+  const forceRemote = process.argv.includes("--remote") || process.env.VERCEL === "1";
+
+  if (forceRemote) {
+    console.log("Remote build triggered. Cloning solutions from https://github.com/yathartharastogi/DSA-Problems...");
+    const tempPath = path.join(workspaceRoot, tempDirName);
+    if (fs.existsSync(tempPath)) {
+      fs.rmSync(tempPath, { recursive: true, force: true });
+    }
+    
+    try {
+      execSync(`git clone https://github.com/yathartharastogi/DSA-Problems ${tempDirName}`, {
+        stdio: "inherit",
+      });
+      solutionsDir = tempPath;
+      tempDirCreated = true;
+    } catch (err) {
+      console.error("Failed to clone remote repository. Using workspace files instead:", err);
+    }
+  }
+
+  const results: Problem[] = [];
+  const items = fs.readdirSync(solutionsDir);
 
   for (const item of items) {
-    const fullPath = path.join(workspaceRoot, item);
+    const fullPath = path.join(solutionsDir, item);
     const stat = fs.statSync(fullPath);
 
-    if (stat.isDirectory() && !IGNORED_DIRECTORIES.has(item)) {
+    if (stat.isDirectory() && !IGNORED_DIRECTORIES.has(item) && item !== tempDirName) {
       console.log(`Scanning platform folder: ${item}`);
       scanDirectory(fullPath, item, results);
     }
   }
 
-  // Sort by date (descending), then by day (descending), then by name
+  // Sort by date (descending), day (descending), then name
   results.sort((a, b) => {
     if (a.date !== b.date) {
       return b.date.localeCompare(a.date);
@@ -223,7 +246,6 @@ function main() {
     return a.name.localeCompare(b.name);
   });
 
-  // Ensure data output directory exists
   const dataDir = path.join(workspaceRoot, "data");
   if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir);
@@ -236,6 +258,12 @@ function main() {
   );
 
   console.log(`Success! Parsed ${results.length} problems and wrote to data/problems.json.`);
+
+  // Clean up temp repository
+  if (tempDirCreated && fs.existsSync(solutionsDir)) {
+    console.log("Cleaning up temporary clone...");
+    fs.rmSync(solutionsDir, { recursive: true, force: true });
+  }
 }
 
 main();

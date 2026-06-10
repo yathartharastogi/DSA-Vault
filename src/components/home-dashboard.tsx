@@ -39,9 +39,20 @@ export default function HomeDashboard({ initialProblems }: HomeDashboardProps) {
     const hard = initialProblems.filter((p) => p.difficulty === "Hard").length;
 
     // Platform counts
-    const platformsMap: Record<string, number> = {};
+    const platformsMap: Record<string, number> = {
+      "LeetCode": 0,
+      "Codeforces": 0,
+      "Codechef": 0
+    };
     initialProblems.forEach((p) => {
-      platformsMap[p.platform] = (platformsMap[p.platform] || 0) + 1;
+      const standardName = Object.keys(platformsMap).find(
+        key => key.toLowerCase() === p.platform.toLowerCase()
+      );
+      if (standardName) {
+        platformsMap[standardName]++;
+      } else {
+        platformsMap[p.platform] = 1;
+      }
     });
     const platforms = Object.entries(platformsMap).map(([name, count]) => ({
       name,

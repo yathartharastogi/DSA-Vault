@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "generate": "tsx scripts/parse-solutions.ts",
-    "build": "npm run generate && next build",
+    "build": "npm run generate -- --remote && next build",
     "start": "next start",
     "lint": "eslint"
   },

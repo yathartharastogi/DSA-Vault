@@ -20,18 +20,23 @@ interface Problem {
   filepath: string;
 }
 
-// Generate static parameters for all unique platforms
+const TRACKED_PLATFORMS = ["LeetCode", "Codeforces", "Codechef"];
+
+// Generate static parameters for all unique platforms + standard profiles
 export async function generateStaticParams() {
   try {
     const dataFilePath = path.join(process.cwd(), "data", "problems.json");
-    if (!fs.existsSync(dataFilePath)) {
-      return [];
+    let problems: Problem[] = [];
+    
+    if (fs.existsSync(dataFilePath)) {
+      const dataStr = fs.readFileSync(dataFilePath, "utf-8");
+      problems = JSON.parse(dataStr);
     }
-    const dataStr = fs.readFileSync(dataFilePath, "utf-8");
-    const problems: Problem[] = JSON.parse(dataStr);
 
     const platforms = Array.from(new Set(problems.map((p) => p.platform.toLowerCase())));
-    return platforms.map((platform) => ({
+    const allPlatforms = Array.from(new Set([...platforms, "leetcode", "codeforces", "codechef"]));
+    
+    return allPlatforms.map((platform) => ({
       platform,
     }));
   } catch (err) {
@@ -58,17 +63,25 @@ export default async function PlatformPage({ params }: PageProps) {
     console.error("Failed to read problems.json:", err);
   }
 
+  // Normalize / verify platform
+  const isValidPlatform = TRACKED_PLATFORMS.some(
+    (p) => p.toLowerCase() === platform.toLowerCase()
+  ) || problems.some((p) => p.platform.toLowerCase() === platform.toLowerCase());
+
+  if (!isValidPlatform) {
+    notFound();
+  }
+
   // Find matching problems for this platform
   const platformProblems = problems.filter(
     (p) => p.platform.toLowerCase() === platform.toLowerCase()
   );
 
-  if (platformProblems.length === 0) {
-    notFound();
-  }
-
-  // Get the display name of the platform (e.g. "LeetCode" instead of "leetcode")
-  const platformName = platformProblems[0].platform;
+  // Get standard platform casing or fallback
+  const standardName = TRACKED_PLATFORMS.find(
+    (p) => p.toLowerCase() === platform.toLowerCase()
+  );
+  const platformName = standardName || (platformProblems[0]?.platform || platform);
 
   return <PlatformDashboard platformName={platformName} problems={platformProblems} />;
 }
