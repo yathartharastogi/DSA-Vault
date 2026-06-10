@@ -17,7 +17,7 @@
     "filename": "Watermelon.cpp",
     "language": "cpp",
     "solution": "#include <iostream>\n\nint main() {\n    int w;\n    std::cin >> w;\n    if (w > 2 && w % 2 == 0) {\n        std::cout << \"YES\" << std::endl;\n    } else {\n        std::cout << \"NO\" << std::endl;\n    }\n    return 0;\n}",
-    "filepath": "D:/DSA Grind website/Codeforces/Watermelon.cpp"
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/Codeforces/Watermelon.cpp"
   },
   {
     "id": "49",
@@ -38,7 +38,7 @@
     "filename": "GroupAnagrams.cpp",
     "language": "cpp",
     "solution": "#include <vector>\n#include <string>\n#include <unordered_map>\n#include <algorithm>\n\nclass Solution {\npublic:\n    std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string>& strs) {\n        std::unordered_map<std::string, std::vector<std::string>> anagram_groups;\n        for (const std::string& s : strs) {\n            std::string key = s;\n            std::sort(key.begin(), key.end());\n            anagram_groups[key].push_back(s);\n        }\n        \n        std::vector<std::vector<std::string>> result;\n        for (auto& pair : anagram_groups) {\n            result.push_back(std::move(pair.second));\n        }\n        return result;\n    }\n};",
-    "filepath": "D:/DSA Grind website/LeetCode/GroupAnagrams.cpp"
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/LeetCode/GroupAnagrams.cpp"
   },
   {
     "id": "100",
@@ -59,7 +59,7 @@
     "filename": "SameTree.cpp",
     "language": "cpp",
     "solution": "struct TreeNode {\n    int val;\n    TreeNode *left;\n    TreeNode *right;\n    TreeNode() : val(0), left(nullptr), right(nullptr) {}\n    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n};\n\nclass Solution {\npublic:\n    bool isSameTree(TreeNode* p, TreeNode* q) {\n        if (p == nullptr && q == nullptr) {\n            return true;\n        }\n        if (p == nullptr || q == nullptr) {\n            return false;\n        }\n        if (p->val != q->val) {\n            return false;\n        }\n        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);\n    }\n};",
-    "filepath": "D:/DSA Grind website/LeetCode/SameTree.cpp"
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/LeetCode/SameTree.cpp"
   },
   {
     "id": "203",
@@ -79,7 +79,7 @@
     "filename": "RemoveLinkedListElement.cpp",
     "language": "cpp",
     "solution": "struct ListNode {\n    int val;\n    ListNode *next;\n    ListNode() : val(0), next(nullptr) {}\n    ListNode(int x) : val(x), next(nullptr) {}\n    ListNode(int x, ListNode *next) : val(x), next(next) {}\n};\n\nclass Solution {\npublic:\n    ListNode* removeElements(ListNode* head, int val) {\n        ListNode dummy(0, head);\n        ListNode* prev = &dummy;\n        ListNode* curr = head;\n        \n        while (curr != nullptr) {\n            if (curr->val == val) {\n                prev->next = curr->next;\n            } else {\n                prev = curr;\n            }\n            curr = curr->next;\n        }\n        \n        return dummy.next;\n    }\n};",
-    "filepath": "D:/DSA Grind website/LeetCode/RemoveLinkedListElement.cpp"
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/LeetCode/RemoveLinkedListElement.cpp"
   },
   {
     "id": "1",
@@ -99,6 +99,6 @@
     "filename": "TwoSum.cpp",
     "language": "cpp",
     "solution": "#include <vector>\n#include <unordered_map>\n\nclass Solution {\npublic:\n    std::vector<int> twoSum(std::vector<int>& nums, int target) {\n        std::unordered_map<int, int> num_to_index;\n        for (int i = 0; i < nums.size(); ++i) {\n            int complement = target - nums[i];\n            if (num_to_index.find(complement) != num_to_index.end()) {\n                return {num_to_index[complement], i};\n            }\n            num_to_index[nums[i]] = i;\n        }\n        return {};\n    }\n};",
-    "filepath": "D:/DSA Grind website/LeetCode/TwoSum.cpp"
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/LeetCode/TwoSum.cpp"
   }
 ]
