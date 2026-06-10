@@ -34,7 +34,7 @@ export default function Navbar() {
     { name: "Statistics", href: "/statistics" },
   ];
 
-  const githubUrl = "https://github.com/yathartharastogi/DSA-Vault";
+  const githubUrl = "https://github.com/yathartharastogi";
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-colors duration-200">
@@ -56,15 +56,14 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-foreground ${
-                    isActive ? "text-foreground" : "text-muted"
-                  }`}
+                  className={`text-sm font-medium transition-colors hover:text-foreground ${isActive ? "text-foreground" : "text-muted"
+                    }`}
                 >
                   {link.name}
                 </Link>
               );
             })}
-            
+
             <a
               href={githubUrl}
               target="_blank"
@@ -83,7 +82,7 @@ export default function Navbar() {
           {/* Mobile menu button & Theme toggle */}
           <div className="flex md:hidden items-center space-x-3">
             <ThemeToggle />
-            
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="flex flex-col justify-center items-center h-8 w-8 rounded-md border border-border bg-card text-foreground"
@@ -108,9 +107,8 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                  isActive ? "bg-card text-foreground" : "text-muted hover:bg-card/50 hover:text-foreground"
-                }`}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${isActive ? "bg-card text-foreground" : "text-muted hover:bg-card/50 hover:text-foreground"
+                  }`}
               >
                 {link.name}
               </Link>
