@@ -1,4 +1,4 @@
-name: Generate and Deploy DSA Vault
+name: Deploy DSA Vault to GitHub Pages
 
 on:
   push:
@@ -8,20 +8,27 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-    
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,7 +40,7 @@ jobs:
         run: npm install
 
       - name: Generate Problems JSON Database
-        run: npm run generate
+        run: npm run generate -- --remote
 
       - name: Commit & Push updated database
         run: |
@@ -44,18 +51,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Vercel CLI
-        if: env.VERCEL_TOKEN != ''
-        run: npm install --global vercel@latest
+      - name: Build with Next.js
+        run: npm run build
 
-      - name: Pull Vercel Environment Information
-        if: env.VERCEL_TOKEN != ''
-        run: vercel pull --yes --environment=production --token=${{ env.VERCEL_TOKEN }}
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
 
-      - name: Build Project Artifacts
-        if: env.VERCEL_TOKEN != ''
-        run: vercel build --prod --token=${{ env.VERCEL_TOKEN }}
-
-      - name: Deploy Project Artifacts to Vercel
-        if: env.VERCEL_TOKEN != ''
-        run: vercel deploy --prebuilt --prod --token=${{ env.VERCEL_TOKEN }}
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

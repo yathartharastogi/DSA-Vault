@@ -16,8 +16,8 @@
     "day": 3,
     "filename": "Anagrams.cpp",
     "language": "cpp",
-    "solution": "class Solution {\npublic:\n    vector<vector<string>> groupAnagrams(vector<string>& strs) {\n        unordered_map<string, vector<string>> mp;\n\n        for (string s : strs) {\n            string key = s;\n\n            sort(key.begin(), key.end());\n\n            mp[key].push_back(s);\n        }\n\n        vector<vector<string>> result;\n\n        for (auto& pair : mp) {\n            result.push_back(pair.second);\n        }\n\n        return result;\n    }\n};",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/LeetCode/Anagrams.cpp"
+    "solution": "class Solution {\r\npublic:\r\n    vector<vector<string>> groupAnagrams(vector<string>& strs) {\r\n        unordered_map<string, vector<string>> mp;\r\n\r\n        for (string s : strs) {\r\n            string key = s;\r\n\r\n            sort(key.begin(), key.end());\r\n\r\n            mp[key].push_back(s);\r\n        }\r\n\r\n        vector<vector<string>> result;\r\n\r\n        for (auto& pair : mp) {\r\n            result.push_back(pair.second);\r\n        }\r\n\r\n        return result;\r\n    }\r\n};",
+    "filepath": "D:/DSA Grind website/temp-solutions-clone/LeetCode/Anagrams.cpp"
   },
   {
     "id": "100",
@@ -36,8 +36,8 @@
     "day": 3,
     "filename": "SameTree.cpp",
     "language": "cpp",
-    "solution": "class Solution {\npublic:\n    bool isSameTree(TreeNode* p, TreeNode* q) {\n\n       if(p == nullptr && q == nullptr){\n        return true;\n       }\n\n       if(p == nullptr || q == nullptr){\n        return false;\n       }\n\n       if(p->val != q->val){\n        return false;\n       }\n\n       return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);\n    }\n};",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/LeetCode/SameTree.cpp"
+    "solution": "class Solution {\r\npublic:\r\n    bool isSameTree(TreeNode* p, TreeNode* q) {\r\n\r\n       if(p == nullptr && q == nullptr){\r\n        return true;\r\n       }\r\n\r\n       if(p == nullptr || q == nullptr){\r\n        return false;\r\n       }\r\n\r\n       if(p->val != q->val){\r\n        return false;\r\n       }\r\n\r\n       return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);\r\n    }\r\n};",
+    "filepath": "D:/DSA Grind website/temp-solutions-clone/LeetCode/SameTree.cpp"
   },
   {
     "id": "203",
@@ -55,8 +55,8 @@
     "day": 2,
     "filename": "RemoveLinkedListElement.cpp",
     "language": "cpp",
-    "solution": "class Solution {\npublic:\n    ListNode* removeElements(ListNode* head, int val) {\n        ListNode dummy(0);\n        dummy.next = head;\n        \n        ListNode* curr = &dummy;\n        \n        while (curr->next != nullptr) {\n            if (curr->next->val == val) {\n                ListNode* toDelete = curr->next;\n                \n                curr->next = curr->next->next;\n                \n                delete toDelete; \n            } else {\n                curr = curr->next;\n            }\n        }\n        \n        return dummy.next;\n    }\n};",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/LeetCode/RemoveLinkedListElement.cpp"
+    "solution": "class Solution {\r\npublic:\r\n    ListNode* removeElements(ListNode* head, int val) {\r\n        ListNode dummy(0);\r\n        dummy.next = head;\r\n        \r\n        ListNode* curr = &dummy;\r\n        \r\n        while (curr->next != nullptr) {\r\n            if (curr->next->val == val) {\r\n                ListNode* toDelete = curr->next;\r\n                \r\n                curr->next = curr->next->next;\r\n                \r\n                delete toDelete; \r\n            } else {\r\n                curr = curr->next;\r\n            }\r\n        }\r\n        \r\n        return dummy.next;\r\n    }\r\n};",
+    "filepath": "D:/DSA Grind website/temp-solutions-clone/LeetCode/RemoveLinkedListElement.cpp"
   },
   {
     "id": "1",
@@ -74,7 +74,7 @@
     "day": 1,
     "filename": "TwoSum.cpp",
     "language": "cpp",
-    "solution": "class Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        for (int i=0; i<nums.size(); i++){\n            for(int j=i+1; j<nums.size(); j++){\n                if(nums[i]+nums[j]==target){\n                    return{i,j};\n                }\n            }\n        }\n        return{};\n    }\n};",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/LeetCode/TwoSum.cpp"
+    "solution": "class Solution {\r\npublic:\r\n    vector<int> twoSum(vector<int>& nums, int target) {\r\n        for (int i=0; i<nums.size(); i++){\r\n            for(int j=i+1; j<nums.size(); j++){\r\n                if(nums[i]+nums[j]==target){\r\n                    return{i,j};\r\n                }\r\n            }\r\n        }\r\n        return{};\r\n    }\r\n};",
+    "filepath": "D:/DSA Grind website/temp-solutions-clone/LeetCode/TwoSum.cpp"
   }
 ]
