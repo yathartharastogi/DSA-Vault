@@ -1,9 +1,9 @@
 [
   {
-    "id": "watermelon",
+    "id": "4A",
     "name": "Watermelon",
     "slug": "watermelon",
-    "platform": "Codeforces 4A",
+    "platform": "Codeforces",
     "difficulty": "Easy",
     "topics": [
       "Math",
