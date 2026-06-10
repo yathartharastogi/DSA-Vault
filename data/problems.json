@@ -1,5 +1,25 @@
 [
   {
+    "id": "121",
+    "name": "Best Time to Buy and Sell Stock",
+    "slug": "best-time-to-buy-and-sell-stock",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Dynamic Programming"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-10",
+    "day": 3,
+    "filename": "BuySellStock.cpp",
+    "language": "cpp",
+    "solution": "class Solution {\npublic:\n    int maxProfit(vector<int>& prices) {\n        int minp = prices[0];\n        int maxp = 0;\n\n        for (int price : prices) {\n            minp = min(minp, price);\n\n            int profit = price - minp;\n\n            maxp = max(maxp, profit);\n        }\n\n        return maxp;\n    }\n};",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/BuySellStock.cpp"
+  },
+  {
     "id": "49",
     "name": "Group Anagrams",
     "slug": "group-anagrams",
