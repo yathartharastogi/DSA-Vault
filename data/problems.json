@@ -20,6 +20,26 @@
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/TheatreSquare.cpp"
   },
   {
+    "id": "347",
+    "name": "Top K Frequent Elements",
+    "slug": "top-k-frequent-elements",
+    "platform": "LeetCode",
+    "difficulty": "Medium",
+    "topics": [
+      "Hash Map",
+      "Bucket Sort"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-11",
+    "day": 4,
+    "filename": "TopKFrequent.cpp",
+    "language": "cpp",
+    "solution": "class Solution {\npublic:\n    vector<int> topKFrequent(vector<int>& nums, int k) {\n\n        unordered_map<int, int> ump;\n\n        for (int num : nums) {\n            ump[num]++;\n        }\n\n        vector<vector<int>> bucket(nums.size() + 1);\n\n        for (auto& [num, count] : ump) {\n            bucket[count].push_back(num);\n        }\n\n        vector<int> ans;\n\n        for (int i = nums.size(); i >= 0 && ans.size() < k; i--) {\n\n            for (int num : bucket[i]) {\n                ans.push_back(num);\n\n                if (ans.size() == k) {\n                    return ans;\n                }\n            }\n        }\n\n        return ans;\n    }\n};",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/TopKFrequent.cpp"
+  },
+  {
     "id": "4A",
     "name": "Watermelon",
     "slug": "watermelon",
