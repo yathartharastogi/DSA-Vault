@@ -1,5 +1,63 @@
 [
   {
+    "id": "617A",
+    "name": "A. Elephant",
+    "slug": "a-elephant",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Math",
+      "Greedy"
+    ],
+    "timeComplexity": "O(1)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "Elephant.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    int n;\n    cin >> n;\n\n    int a = (n+4)/5;\n\n    cout << a;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Elephant.cpp"
+  },
+  {
+    "id": "546A",
+    "name": "A. Soldier and Bananas",
+    "slug": "a-soldier-and-bananas",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Math"
+    ],
+    "timeComplexity": "O(1)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "SoldierandBananas.cpp",
+    "language": "cpp",
+    "solution": "#include  <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    int long long k, n, w;\n    cin >> k >> n >> w;\n\n    long long cost = k*(w*(w+1)/2);\n    \n    cout << max(0LL, cost-n);\n\n    return 0;\n\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/SoldierandBananas.cpp"
+  },
+  {
+    "id": "281A",
+    "name": "A. Word Capitalization",
+    "slug": "a-word-capitalization",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Strings"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "WordCapitalization.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    string s;\n    cin >> s;\n\n    s[0] = toupper(s[0]);\n\n    cout << s;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/WordCapitalization.cpp"
+  },
+  {
     "id": "282A",
     "name": "Bit++",
     "slug": "bit",
@@ -59,6 +117,26 @@
     "language": "cpp",
     "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int m, n;\n    cin >> m >> n;\n\n    int area = m*n;\n    \n    cout << area/2;\n\n    return 0;\n}",
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/DominoPilling.cpp"
+  },
+  {
+    "id": "339A",
+    "name": "Helpful Maths",
+    "slug": "helpful-maths",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Strings",
+      "Sorting"
+    ],
+    "timeComplexity": "O(n log n)",
+    "spaceComplexity": "O(n)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "HelpfulMaths.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\n#include <algorithm>\n#include <vector>\nusing namespace std;\n\nint main() {\n\n    string s;\n    cin >> s;\n\n    vector<char> nums;\n\n    for(char c : s){\n        if(c != '+'){\n            nums.push_back(c);\n        }\n    }\n\n    sort(nums.begin(), nums.end()); \n\n    cout << nums[0];\n\n    for(int i = 1; i < nums.size(); i++){\n        cout << '+' << nums[i];\n    }\n\n    return 0;\n\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/HelpfulMaths.cpp"
   },
   {
     "id": "226",
