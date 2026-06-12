@@ -37,7 +37,7 @@
     "filename": "BoyorGirl.cpp",
     "language": "cpp",
     "solution": "#include <iostream>\n#include <set>\nusing namespace std;\n\nint main() {\n    string s;\n    cin >> s;\n\n    set<char> t;\n\n    for (char c : s) {\n        t.insert(c);\n    }\n\n    if (t.size() % 2 == 0)\n        cout << \"CHAT WITH HER!\";\n    else\n        cout << \"IGNORE HIM!\";\n\n    return 0;\n}",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/BoyorGirl.cpp"
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/BoyorGirl.cpp"
   },
   {
     "id": "50A",
