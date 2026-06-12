@@ -1,5 +1,85 @@
 [
   {
+    "id": "282A",
+    "name": "Bit++",
+    "slug": "bit",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Implementation",
+      "Strings"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "Bit++.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    int n;\n    int x = 0;\n    cin >> n;\n\n    while(n--){\n\n        string a;\n        cin >> a;\n\n        if(a[1] == '+'){\n            x++;\n        }\n        else{\n            x--;\n        }\n\n    }\n\n    cout << x << '\\n';\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Bit++.cpp"
+  },
+  {
+    "id": "50A",
+    "name": "Domino Piling",
+    "slug": "domino-piling",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Math",
+      "Greedy",
+      "Implementation"
+    ],
+    "timeComplexity": "O(1)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "DominoPilling.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int m, n;\n    cin >> m >> n;\n\n    int area = m*n;\n    \n    cout << area/2;\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/DominoPilling.cpp"
+  },
+  {
+    "id": "158A",
+    "name": "Next Round",
+    "slug": "next-round",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "NextRound.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    int n, k;\n    cin >> n >> k;\n\n    vector<int> scores(n);\n\n    for (int i = 0; i < n; i++) {\n        cin >> scores[i];\n    }\n\n    int cutoff = scores[k - 1];\n    int ans = 0;\n\n    for (int score : scores) {\n        if (score >= cutoff && score > 0) {\n            ans++;\n        }\n    }\n\n    cout << ans << '\\n';\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/NextRound.cpp"
+  },
+  {
+    "id": "118A",
+    "name": "String Task",
+    "slug": "string-task",
+    "platform": "Codeforces",
+    "difficulty": "Medium",
+    "topics": [
+      "Strings",
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "StringTask.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    string s;\n    cin >> s;\n\n    for (char c : s){\n\n        c = tolower(c);\n\n        if(c != 'a' & c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'y'){\n\n            cout << '.' << c;\n        }\n    }\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/StringTask.cpp"
+  },
+  {
     "id": "231A",
     "name": "Team",
     "slug": "team",
