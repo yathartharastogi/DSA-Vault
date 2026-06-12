@@ -41,6 +41,47 @@
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/DominoPilling.cpp"
   },
   {
+    "id": "226",
+    "name": "Invert Binary Tree",
+    "slug": "invert-binary-tree",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
+    "topics": [
+      "Binary Tree",
+      "DFS",
+      "Recursion"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(h)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "InvertBinaryTree.cpp",
+    "language": "cpp",
+    "solution": "class Solution {\npublic:\n    TreeNode* invertTree(TreeNode* root) {\n        if(root == NULL) return NULL;\n\n        invertTree(root->left);\n        invertTree(root->right);\n\n        TreeNode* temp = root->left;\n        root->left = root->right;\n        root->right = temp;\n\n        return root;\n    }\n};",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/InvertBinaryTree.cpp"
+  },
+  {
+    "id": "155",
+    "name": "Min Stack",
+    "slug": "min-stack",
+    "platform": "LeetCode",
+    "difficulty": "Medium",
+    "topics": [
+      "Stack",
+      "Design"
+    ],
+    "timeComplexity": "O(1)",
+    "spaceComplexity": "O(n)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "MinStack.cpp",
+    "language": "cpp",
+    "solution": "class MinStack {\npublic:\n    stack<pair<int, int>> s;\n\n    MinStack() {\n        \n    }\n    \n    void push(int value) {\n        if(s.empty()){\n            s.push({value, value});\n        }\n        else{\n            int minVal = min(value, s.top().second);\n            s.push({value, minVal});\n        }\n    }\n    \n    void pop() {\n        s.pop()\n    }\n    \n    int top() {\n        return s.top().first;        \n    }\n    \n    int getMin() {\n        return s.top().second;\n    }\n};",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/MinStack.cpp"
+  },
+  {
     "id": "158A",
     "name": "Next Round",
     "slug": "next-round",
