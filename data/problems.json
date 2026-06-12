@@ -1,5 +1,25 @@
 [
   {
+    "id": "231A",
+    "name": "Team",
+    "slug": "team",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Implementation",
+      "Greedy"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "Team.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    int ans = 0;\n\n    while (n--) {\n        int a, b, c;\n        cin >> a >> b >> c;\n\n        if (a + b + c >= 2) {\n            ans++;\n        }\n    }\n\n    cout << ans << '\\n';\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Team.cpp"
+  },
+  {
     "id": "1A",
     "name": "Theatre Square",
     "slug": "theatre-square",
