@@ -1,5 +1,25 @@
 [
   {
+    "id": "59A",
+    "name": "A. Word",
+    "slug": "a-word",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Strings",
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-14",
+    "day": 7,
+    "filename": "Word.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    string s;\n    int upper = 0;\n    int lower = 0;\n\n    cin >> s;\n\n    for (char c : s) {\n\n        if (isupper(c))\n            upper++;\n        \n        else\n            lower++;\n    }\n\n    if (upper > lower) {\n        \n        for (char &c : s) {\n            c = toupper(c);\n        }\n    }\n\n    else {\n    \n        for (char &c : s) {\n            c = tolower(c);\n        }\n    }\n\n    cout << s;\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Word.cpp"
+  },
+  {
     "id": "104",
     "name": "Maximum Depth of Binary Tree",
     "slug": "maximum-depth-of-binary-tree",
