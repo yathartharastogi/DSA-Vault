@@ -1,5 +1,26 @@
 [
   {
+    "id": "add-two-numbers",
+    "name": "2. Add Two Numbers",
+    "slug": "2-add-two-numbers",
+    "platform": "LeetCode",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List",
+      "Math",
+      "Simulation"
+    ],
+    "timeComplexity": "O(max(n, m))",
+    "spaceComplexity": "O(max(n, m))",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-14",
+    "day": 7,
+    "filename": "AddTwoNumbers.cpp",
+    "language": "cpp",
+    "solution": "class Solution {\npublic:\n    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {\n        ListNode dummy(0);\n        auto cur = &dummy;\n        int carry = 0;\n\n        while (l1 || l2 || carry) {\n            int sum = carry +\n                     (l1 ? l1->val : 0) +\n                     (l2 ? l2->val : 0);\n\n            carry = sum / 10;\n            cur = cur->next = new ListNode(sum % 10);\n\n            if (l1) l1 = l1->next;\n            if (l2) l2 = l2->next;\n        }\n\n        return dummy.next;\n    }\n};",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/AddTwoNumbers.cpp"
+  },
+  {
     "id": "59A",
     "name": "A. Word",
     "slug": "a-word",
