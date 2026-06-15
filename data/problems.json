@@ -1,24 +1,43 @@
 [
   {
-    "id": "add-two-numbers",
-    "name": "2. Add Two Numbers",
-    "slug": "2-add-two-numbers",
+    "id": "121",
+    "name": "Best Time to Buy and Sell Stock",
+    "slug": "best-time-to-buy-and-sell-stock",
     "platform": "LeetCode",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Greedy"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-15",
+    "day": 8,
+    "filename": "BestTimetoBuyandSellStock.cpp",
+    "language": "cpp",
+    "solution": "class Solution {\npublic:\n    int maxProfit(vector<int>& prices) {\n        int minp = prices[0];\n        int maxp = 0;\n\n        for (int price : prices) {\n            minp = min(minp, price);\n\n            int profit = price - minp;\n\n            maxp = max(maxp, profit);\n        }\n\n        return maxp;\n    }\n};",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/BestTimetoBuyandSellStock.cpp"
+  },
+  {
+    "id": "206",
+    "name": "Reverse Linked List",
+    "slug": "reverse-linked-list",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
     "topics": [
       "Linked List",
-      "Math",
-      "Simulation"
+      "Recursion"
     ],
-    "timeComplexity": "O(max(n, m))",
-    "spaceComplexity": "O(max(n, m))",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
     "submittedBy": "Yathartha Rastogi",
-    "date": "2026-06-14",
-    "day": 7,
-    "filename": "AddTwoNumbers.cpp",
+    "date": "2026-06-15",
+    "day": 8,
+    "filename": "ReverseLinkedList.cpp",
     "language": "cpp",
-    "solution": "class Solution {\npublic:\n    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {\n        ListNode dummy(0);\n        auto cur = &dummy;\n        int carry = 0;\n\n        while (l1 || l2 || carry) {\n            int sum = carry +\n                     (l1 ? l1->val : 0) +\n                     (l2 ? l2->val : 0);\n\n            carry = sum / 10;\n            cur = cur->next = new ListNode(sum % 10);\n\n            if (l1) l1 = l1->next;\n            if (l2) l2 = l2->next;\n        }\n\n        return dummy.next;\n    }\n};",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/AddTwoNumbers.cpp"
+    "solution": "class Solution {\npublic:\n    ListNode* reverseList(ListNode* head) {\n        if(head == nullptr || head->next == nullptr)\n            return head;\n\n        ListNode* newhead = reverseList(head->next);\n\n        head->next->next = head;\n        head->next = nullptr;\n\n        return newhead;\n    }\n};",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/ReverseLinkedList.cpp"
   },
   {
     "id": "59A",
@@ -59,6 +78,27 @@
     "language": "cpp",
     "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    int xSum = 0, ySum = 0, zSum = 0;\n\n    while (n--) {\n        int x, y, z;\n        cin >> x >> y >> z;\n\n        xSum += x;\n        ySum += y;\n        zSum += z;\n    }\n\n    if (xSum == 0 && ySum == 0 && zSum == 0)\n        cout << \"YES\";\n    else\n        cout << \"NO\";\n}`",
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/YoungPhysicist.cpp"
+  },
+  {
+    "id": "add-two-numbers",
+    "name": "Add Two Numbers",
+    "slug": "add-two-numbers",
+    "platform": "LeetCode",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List",
+      "Math",
+      "Simulation"
+    ],
+    "timeComplexity": "O(max(n, m))",
+    "spaceComplexity": "O(max(n, m))",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-14",
+    "day": 7,
+    "filename": "AddTwoNumbers.cpp",
+    "language": "cpp",
+    "solution": "class Solution {\npublic:\n    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {\n        ListNode dummy(0);\n        auto cur = &dummy;\n        int carry = 0;\n\n        while (l1 || l2 || carry) {\n            int sum = carry +\n                     (l1 ? l1->val : 0) +\n                     (l2 ? l2->val : 0);\n\n            carry = sum / 10;\n            cur = cur->next = new ListNode(sum % 10);\n\n            if (l1) l1 = l1->next;\n            if (l2) l2 = l2->next;\n        }\n\n        return dummy.next;\n    }\n};",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/AddTwoNumbers.cpp"
   },
   {
     "id": "104",
