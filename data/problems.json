@@ -40,6 +40,27 @@
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/CheapTravel.cpp"
   },
   {
+    "id": "109A",
+    "name": "Lucky Sum of Digits",
+    "slug": "lucky-sum-of-digits",
+    "platform": "Codeforces",
+    "difficulty": "Hard",
+    "topics": [
+      "Brute Force",
+      "Math",
+      "Greedy"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-15",
+    "day": 8,
+    "filename": "LuckySumofDigits.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    int best4 = -1, best7 = -1;\n    int minDigits = INT_MAX;\n\n    for (int y = 0; 7 * y <= n; y++) {\n        if ((n - 7 * y) % 4 == 0) {\n            int x = (n - 7 * y) / 4;\n\n            if (x + y < minDigits) {\n                minDigits = x + y;\n                best4 = x;\n                best7 = y;\n            }\n        }\n    }\n\n    if (best4 == -1) {\n        cout << -1;\n        return 0;\n    }\n\n    cout << string(best4, '4') << string(best7, '7');\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/LuckySumofDigits.cpp"
+  },
+  {
     "id": "206",
     "name": "Reverse Linked List",
     "slug": "reverse-linked-list",
