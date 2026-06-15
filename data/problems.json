@@ -20,6 +20,26 @@
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/BestTimetoBuyandSellStock.cpp"
   },
   {
+    "id": "466A",
+    "name": "Cheap Travel",
+    "slug": "cheap-travel",
+    "platform": "Codeforces",
+    "difficulty": "Medium",
+    "topics": [
+      "Greedy",
+      "Math"
+    ],
+    "timeComplexity": "O(1)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-15",
+    "day": 8,
+    "filename": "CheapTravel.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    long long n, m, a, b;\n    cin >> n >> m >> a >> b;\n\n    if (m * a <= b) {\n        cout << n * a;\n    } else {\n        cout << (n / m) * b + min((n % m) * a, b);\n    }\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/CheapTravel.cpp"
+  },
+  {
     "id": "206",
     "name": "Reverse Linked List",
     "slug": "reverse-linked-list",
@@ -38,46 +58,6 @@
     "language": "cpp",
     "solution": "class Solution {\npublic:\n    ListNode* reverseList(ListNode* head) {\n        if(head == nullptr || head->next == nullptr)\n            return head;\n\n        ListNode* newhead = reverseList(head->next);\n\n        head->next->next = head;\n        head->next = nullptr;\n\n        return newhead;\n    }\n};",
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/ReverseLinkedList.cpp"
-  },
-  {
-    "id": "59A",
-    "name": "A. Word",
-    "slug": "a-word",
-    "platform": "Codeforces",
-    "difficulty": "Easy",
-    "topics": [
-      "Strings",
-      "Implementation"
-    ],
-    "timeComplexity": "O(n)",
-    "spaceComplexity": "O(1)",
-    "submittedBy": "Yathartha Rastogi",
-    "date": "2026-06-14",
-    "day": 7,
-    "filename": "Word.cpp",
-    "language": "cpp",
-    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    string s;\n    int upper = 0;\n    int lower = 0;\n\n    cin >> s;\n\n    for (char c : s) {\n\n        if (isupper(c))\n            upper++;\n        \n        else\n            lower++;\n    }\n\n    if (upper > lower) {\n        \n        for (char &c : s) {\n            c = toupper(c);\n        }\n    }\n\n    else {\n    \n        for (char &c : s) {\n            c = tolower(c);\n        }\n    }\n\n    cout << s;\n\n    return 0;\n}",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Word.cpp"
-  },
-  {
-    "id": "69A",
-    "name": "A. Young Physicist",
-    "slug": "a-young-physicist",
-    "platform": "Codeforces",
-    "difficulty": "Medium",
-    "topics": [
-      "Math",
-      "Implementation"
-    ],
-    "timeComplexity": "O(n)",
-    "spaceComplexity": "O(1)",
-    "submittedBy": "Yathartha Rastogi",
-    "date": "2026-06-14",
-    "day": 7,
-    "filename": "YoungPhysicist.cpp",
-    "language": "cpp",
-    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    int xSum = 0, ySum = 0, zSum = 0;\n\n    while (n--) {\n        int x, y, z;\n        cin >> x >> y >> z;\n\n        xSum += x;\n        ySum += y;\n        zSum += z;\n    }\n\n    if (xSum == 0 && ySum == 0 && zSum == 0)\n        cout << \"YES\";\n    else\n        cout << \"NO\";\n}`",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/YoungPhysicist.cpp"
   },
   {
     "id": "add-two-numbers",
@@ -101,6 +81,46 @@
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/AddTwoNumbers.cpp"
   },
   {
+    "id": "59A",
+    "name": "Word",
+    "slug": "word",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Strings",
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-14",
+    "day": 7,
+    "filename": "Word.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    string s;\n    int upper = 0;\n    int lower = 0;\n\n    cin >> s;\n\n    for (char c : s) {\n\n        if (isupper(c))\n            upper++;\n        \n        else\n            lower++;\n    }\n\n    if (upper > lower) {\n        \n        for (char &c : s) {\n            c = toupper(c);\n        }\n    }\n\n    else {\n    \n        for (char &c : s) {\n            c = tolower(c);\n        }\n    }\n\n    cout << s;\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Word.cpp"
+  },
+  {
+    "id": "69A",
+    "name": "Young Physicist",
+    "slug": "young-physicist",
+    "platform": "Codeforces",
+    "difficulty": "Medium",
+    "topics": [
+      "Math",
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-14",
+    "day": 7,
+    "filename": "YoungPhysicist.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    int xSum = 0, ySum = 0, zSum = 0;\n\n    while (n--) {\n        int x, y, z;\n        cin >> x >> y >> z;\n\n        xSum += x;\n        ySum += y;\n        zSum += z;\n    }\n\n    if (xSum == 0 && ySum == 0 && zSum == 0)\n        cout << \"YES\";\n    else\n        cout << \"NO\";\n}`",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/YoungPhysicist.cpp"
+  },
+  {
     "id": "104",
     "name": "Maximum Depth of Binary Tree",
     "slug": "maximum-depth-of-binary-tree",
@@ -120,64 +140,6 @@
     "language": "cpp",
     "solution": "class Solution {\npublic:\n    int maxDepth(TreeNode* root) {\n        if (root == nullptr)\n            return 0;\n\n        return 1 + max(maxDepth(root->left), maxDepth(root->right));\n    }\n};",
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/MaximumDepthofBinaryTree.cpp"
-  },
-  {
-    "id": "617A",
-    "name": "A. Elephant",
-    "slug": "a-elephant",
-    "platform": "Codeforces",
-    "difficulty": "Easy",
-    "topics": [
-      "Math",
-      "Greedy"
-    ],
-    "timeComplexity": "O(1)",
-    "spaceComplexity": "O(1)",
-    "submittedBy": "Yathartha Rastogi",
-    "date": "2026-06-12",
-    "day": 5,
-    "filename": "Elephant.cpp",
-    "language": "cpp",
-    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    int n;\n    cin >> n;\n\n    int a = (n+4)/5;\n\n    cout << a;\n}",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Elephant.cpp"
-  },
-  {
-    "id": "546A",
-    "name": "A. Soldier and Bananas",
-    "slug": "a-soldier-and-bananas",
-    "platform": "Codeforces",
-    "difficulty": "Easy",
-    "topics": [
-      "Math"
-    ],
-    "timeComplexity": "O(1)",
-    "spaceComplexity": "O(1)",
-    "submittedBy": "Yathartha Rastogi",
-    "date": "2026-06-12",
-    "day": 5,
-    "filename": "SoldierandBananas.cpp",
-    "language": "cpp",
-    "solution": "#include  <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    int long long k, n, w;\n    cin >> k >> n >> w;\n\n    long long cost = k*(w*(w+1)/2);\n    \n    cout << max(0LL, cost-n);\n\n    return 0;\n\n}",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/SoldierandBananas.cpp"
-  },
-  {
-    "id": "281A",
-    "name": "A. Word Capitalization",
-    "slug": "a-word-capitalization",
-    "platform": "Codeforces",
-    "difficulty": "Easy",
-    "topics": [
-      "Strings"
-    ],
-    "timeComplexity": "O(n)",
-    "spaceComplexity": "O(1)",
-    "submittedBy": "Yathartha Rastogi",
-    "date": "2026-06-12",
-    "day": 5,
-    "filename": "WordCapitalization.cpp",
-    "language": "cpp",
-    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    string s;\n    cin >> s;\n\n    s[0] = toupper(s[0]);\n\n    cout << s;\n}",
-    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/WordCapitalization.cpp"
   },
   {
     "id": "282A",
@@ -239,6 +201,26 @@
     "language": "cpp",
     "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int m, n;\n    cin >> m >> n;\n\n    int area = m*n;\n    \n    cout << area/2;\n\n    return 0;\n}",
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/DominoPilling.cpp"
+  },
+  {
+    "id": "617A",
+    "name": "Elephant",
+    "slug": "elephant",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Math",
+      "Greedy"
+    ],
+    "timeComplexity": "O(1)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "Elephant.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    int n;\n    cin >> n;\n\n    int a = (n+4)/5;\n\n    cout << a;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Elephant.cpp"
   },
   {
     "id": "339A",
@@ -321,6 +303,25 @@
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/NextRound.cpp"
   },
   {
+    "id": "546A",
+    "name": "Soldier and Bananas",
+    "slug": "soldier-and-bananas",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Math"
+    ],
+    "timeComplexity": "O(1)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "SoldierandBananas.cpp",
+    "language": "cpp",
+    "solution": "#include  <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    int long long k, n, w;\n    cin >> k >> n >> w;\n\n    long long cost = k*(w*(w+1)/2);\n    \n    cout << max(0LL, cost-n);\n\n    return 0;\n\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/SoldierandBananas.cpp"
+  },
+  {
     "id": "118A",
     "name": "String Task",
     "slug": "string-task",
@@ -359,6 +360,25 @@
     "language": "cpp",
     "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    int ans = 0;\n\n    while (n--) {\n        int a, b, c;\n        cin >> a >> b >> c;\n\n        if (a + b + c >= 2) {\n            ans++;\n        }\n    }\n\n    cout << ans << '\\n';\n\n    return 0;\n}",
     "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Team.cpp"
+  },
+  {
+    "id": "281A",
+    "name": "Word Capitalization",
+    "slug": "word-capitalization",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Strings"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-12",
+    "day": 5,
+    "filename": "WordCapitalization.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    string s;\n    cin >> s;\n\n    s[0] = toupper(s[0]);\n\n    cout << s;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/WordCapitalization.cpp"
   },
   {
     "id": "1A",
