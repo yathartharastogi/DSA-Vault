@@ -1,5 +1,25 @@
 [
   {
+    "id": "263A",
+    "name": "Beautiful Matrix",
+    "slug": "beautiful-matrix",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Implementation",
+      "Matrix"
+    ],
+    "timeComplexity": "O(25) ≈ O(1)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-16",
+    "day": 9,
+    "filename": "BeautifulMatrix.cpp",
+    "language": "cpp",
+    "solution": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    int x, row, col;\n\n    for (int i = 0; i < 5; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> x;\n            if (x == 1) {\n                row = i;\n                col = j;\n            }\n        }\n    }\n\n    cout << abs(row - 2) + abs(col - 2);\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/BeautifulMatrix.cpp"
+  },
+  {
     "id": "53",
     "name": "Maximum Subarray",
     "slug": "maximum-subarray",
