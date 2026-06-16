@@ -1,5 +1,25 @@
 [
   {
+    "id": "53",
+    "name": "Maximum Subarray",
+    "slug": "maximum-subarray",
+    "platform": "LeetCode",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Dynamic Programming"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-16",
+    "day": 9,
+    "filename": "MaximumSubarray.cpp",
+    "language": "cpp",
+    "solution": "class Solution {\npublic:\n    int maxSubArray(vector<int>& nums) {\n        int currentSum = nums[0];\n        int maxSum = nums[0];\n\n        for (int i = 1; i < nums.size(); i++) {\n            currentSum = max(nums[i], currentSum + nums[i]);\n            maxSum = max(maxSum, currentSum);\n        }\n\n        return maxSum;\n    }\n};",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/LeetCode/MaximumSubarray.cpp"
+  },
+  {
     "id": "121",
     "name": "Best Time to Buy and Sell Stock",
     "slug": "best-time-to-buy-and-sell-stock",
