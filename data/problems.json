@@ -1,5 +1,44 @@
 [
   {
+    "id": "467A",
+    "name": "George and Accommodation",
+    "slug": "george-and-accommodation",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-17",
+    "day": 10,
+    "filename": "GeorgeandAccommodation.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    int count = 0;\n\n    while (n--) {\n        int p, q;\n        cin >> p >> q;\n\n        if (q - p >= 2)\n            count++;\n    }\n\n    cout << count;\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/GeorgeandAccommodation.cpp"
+  },
+  {
+    "id": "112A",
+    "name": "Petya and Strings",
+    "slug": "petya-and-strings",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Strings",
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-17",
+    "day": 10,
+    "filename": "PetyaandStrings.cpp",
+    "language": "cpp",
+    "solution": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    string s1, s2;\n    cin >> s1 >> s2;\n\n    for (char &c : s1) c = tolower(c);\n    for (char &c : s2) c = tolower(c);\n\n    if (s1 < s2)\n        cout << -1;\n    else if (s1 > s2)\n        cout << 1;\n    else\n        cout << 0;\n\n    return 0;\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/PetyaandStrings.cpp"
+  },
+  {
     "id": "263A",
     "name": "Beautiful Matrix",
     "slug": "beautiful-matrix",
