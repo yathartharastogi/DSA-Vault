@@ -1,5 +1,25 @@
 [
   {
+    "id": "200B",
+    "name": "Drinks",
+    "slug": "drinks",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Math",
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-18",
+    "day": 11,
+    "filename": "Drinks.cpp",
+    "language": "cpp",
+    "solution": "#include<bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    int n;\n    double sum = 0;\n    cin >> n;\n    int total = n;\n\n    while(n--){\n        int p;\n        cin >> p;\n        sum += p;\n\n    }\n\n    cout << sum/total;\n\n    return 0;\n\n\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Drinks.cpp"
+  },
+  {
     "id": "110A",
     "name": "Nearly Lucky Number",
     "slug": "nearly-lucky-number",
