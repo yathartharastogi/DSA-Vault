@@ -1,5 +1,25 @@
 [
   {
+    "id": "266A",
+    "name": "Stones on the Table",
+    "slug": "stones-on-the-table",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Strings",
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-19",
+    "day": 12,
+    "filename": "StonesontheTable.cpp",
+    "language": "cpp",
+    "solution": "#include<bits/stdc++.h>\n using namespace std;\n\n int main() {\n\n    int n;\n    string s;\n\n    cin >> n >> s;\n\n    int ans = 0;\n\n    for(int i = 0; i < n; i++){\n        if(s[i] == s[i-1]){\n\n            ans++;\n        }\n    }\n\n\n    cout << ans;\n\n }",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/StonesontheTable.cpp"
+  },
+  {
     "id": "200B",
     "name": "Drinks",
     "slug": "drinks",
