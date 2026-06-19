@@ -1,5 +1,25 @@
 [
   {
+    "id": "96A",
+    "name": "Football",
+    "slug": "football",
+    "platform": "Codeforces",
+    "difficulty": "Easy",
+    "topics": [
+      "Strings",
+      "Implementation"
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "submittedBy": "Yathartha Rastogi",
+    "date": "2026-06-19",
+    "day": 12,
+    "filename": "Football.cpp",
+    "language": "cpp",
+    "solution": "#include<bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\n    string s;\n    cin >> s;\n\n    int n = s.length();\n    int count = 1;\n\n    for(int i = 1; i < n; i++){\n        if(s[i] == s[i-1]){\n            count++;\n\n            if(count >= 7){\n                cout << \"YES\";\n                return 0;\n            \n            }\n        }   else{\n            count = 1; \n        }\n        \n    }\n\n    cout << \"NO\";\n    return 0;\n\n}",
+    "filepath": "/home/runner/work/DSA-Vault/DSA-Vault/temp-solutions-clone/CodeForces/Football.cpp"
+  },
+  {
     "id": "266A",
     "name": "Stones on the Table",
     "slug": "stones-on-the-table",
