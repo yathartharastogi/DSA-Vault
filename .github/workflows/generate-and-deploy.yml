@@ -37,27 +37,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Generate Problems JSON Database
-        run: npm run generate -- --remote
-
-      - name: Commit & Push updated database
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet data/problems.json || (git add data/problems.json && git commit -m "chore: auto-generate updated problems database" && git push)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build with Next.js
+      - name: Build Project (Parse Solutions + Next Export)
         run: npm run build
 
-      - name: Upload Artifact
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
